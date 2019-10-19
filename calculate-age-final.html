@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Calculate Age</title>
+  </head>  
+  <body>    
+
+    <button type="button" onclick="askDob()">
+      When were you born?
+    </button>
+
+    <div id="userAge"><div>
+
+    <script>
+      function askDob(){
+
+        var dob = prompt("When were you born?", "12/30/1967");
+        var millisecondsInAYear = 365.2425 * 24 * 60 * 60 * 1000;
+
+        //Execute function every 50 milliseconds
+        setInterval( function() {
+          var ageInMilliseconds = (new Date() - Date.parse(dob));
+          var ageInYears = ageInMilliseconds / millisecondsInAYear;
+
+          document
+            .getElementById("userAge") //Find the HTML element
+            .innerHTML = "You are " + ageInYears + " years old.";  
+        }, 50); 
+      }      
+    </script> 
+  </body>
+</html>
