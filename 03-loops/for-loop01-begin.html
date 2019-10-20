@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello World 1</title>
+    <style>
+      #boxes{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+      .red { 
+        background-color: red; color: white; 
+        width: 100px; 
+        height: 100px; 
+        margin: 5px;
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+      }
+
+      .blue { 
+        background-color: blue; color: white; 
+      }
+
+    </style>
+  
+  </head>  
+  <body>
+    <button type="button" onclick="createBoxesClicked()">
+      Create Boxes
+    </button>
+
+    <div id="boxes">
+
+    </div>
+
+    <button type="button" id="changeColor" onclick="changeColorClicked()" style="display: none;">
+      Change Color
+    </button>
+
+    <script>
+      function createBoxesClicked(){
+        for(var idx = 0 ; idx < 5 ; idx++){
+          var div = document.createElement('div');
+          div.textContent = `Box ${idx}`;
+          div.setAttribute('class', 'box red');
+          document.getElementById("boxes").appendChild(div);
+        }
+
+        document.getElementById("changeColor").style["display"]="block";
+      }      
+
+      function changeColorClicked(){
+        var getBoxes = document.getElementsByClassName("box");
+
+        for(var idx = 0 ; idx < getBoxes.length ; idx++){
+
+          if(getBoxes[idx].classList.contains("blue")){
+            getBoxes[idx].classList.remove("blue");
+          }else{
+            getBoxes[idx].classList.add("blue");
+          }          
+        }        
+
+      }
+
+    </script> 
+  </body>
+</html>
