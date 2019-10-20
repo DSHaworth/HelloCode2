@@ -13,7 +13,6 @@
     </button>
     <div id="greetingsDiv"></div>
     <div id="emptyError" class="errorMessage">Name is required</div>
-    <div id="nullError" class="errorMessage">User pressed Cancel</div>
     
     <script>
       function askQuestionClick(){
@@ -23,8 +22,9 @@
         //   if not null...
         document.getElementById("greetingsDiv").innerHTML = `Hello, ${name}!`;
         
-
-
+        // For this assignment, we don't need to display a specific
+        // error for null or empty string.
+        // Put logic in askQuestion function
         if(name === null || name.trim() === ""){
 
           document.getElementById("greetingsDiv").style["display"]="none";

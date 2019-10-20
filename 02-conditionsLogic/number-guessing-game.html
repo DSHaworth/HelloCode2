@@ -1,0 +1,75 @@
+<!-- 
+  https://www.geeksforgeeks.org/number-guessing-game-using-javascript/
+-->
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <meta charset="utf-8"> 
+    <title>Number Guessing Game</title> 
+  
+    <style> 
+      html { 
+        font-family: sans-serif; 
+      } 
+        
+      body { 
+        width: 50%; 
+        max-width: 800px; 
+        min-width: 480px; 
+        margin: 0 auto; 
+      } 
+    </style> 
+  </head> 
+    
+  <body> 
+    <h1>Guess The Number</h1> 
+      
+    <p>We have selected a random number between 1 - 10.  
+    See if you can guess it.</p> 
+    
+    <p>
+      <button type="button" class="guessSubmit" onclick="startGame()">Start Game</button>
+    </p>
+
+    <label for="guessField">Enter a guess: </label> 
+    <input type = "text" id = "guessField" class = "guessField" style="width: 30px;"> 
+    <button type="button" class="guessSubmit" onclick="submitGuess()">Submit guess</button>
+    <div id="resultGuess"></div>
+      
+    <script type = "text/javascript"> 
+      
+      var numberToGuess = null;
+      var guessCount = null;
+
+      function startGame(){
+        displayResult("");
+        document.getElementById("guessField").value = "";
+        numberToGuess = Math.floor(Math.random() * 10 + 1); 
+        guessCount = 1;
+      }
+
+      function submitGuess(){
+        var currentGuess = document.getElementById("guessField").value; 
+        displayResult("");
+
+        if(currentGuess == numberToGuess) 
+        {     
+          displayResult("CONGRATULATIONS!!! YOU GUESSED IT RIGHT IN " + guessCount + " GUESS "); 
+        } 
+        else if(currentGuess > numberToGuess){ 
+          guessCount++; 
+          displayResult("OOPS SORRY!! TRY A SMALLER NUMBER");
+        } else { 
+          guessCount++; 
+          displayResult("OOPS SORRY!! TRY A GREATER NUMBER");
+        } 
+      }
+
+      function displayResult(result){
+        document
+          .getElementById("resultGuess")
+          .innerHTML = result; 
+      }
+    </script> 
+  </body> 
+</html> 
