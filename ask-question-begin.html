@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ask Question</title>
+  </head>  
+  <body>
+    <button type="button" onclick="askQuestionClicked()">
+      Ask Question
+    </button>
+    <div id="greetingsDiv"></div>
+
+    <script>
+     function askQuestionClicked(){
+        // Move prompt to a new function called "askQuestion" 
+        // that sends question to be asked and return value
+        
+        document
+          .getElementById("greetingsDiv")
+          .innerHTML = `Hello, ${name}!`;
+      }
+      
+      // askQuestion goes here
+      
+    </script>
+  </body>
+</html>

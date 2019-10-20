@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Condition empty</title>
+  </head>
+  <style>
+    .errorMessage{ color: red; display: none; }
+  </style>
+  <body>
+    <button type="button" onclick="askQuestionClick()">
+      Ask Question
+    </button>
+    <div id="greetingsDiv"></div>
+    <div id="emptyError" class="errorMessage">Name is required</div>
+
+    <script>
+      function askQuestionClick(){
+        var name = askQuestion("Hello, what is your name?");
+        // test if name is ""
+        //   if name is "", change emptyError display style to block
+        // else
+        //   display Hello, name
+        //   What else do we need to do?       
+      }
+      function askQuestion(question){
+        return prompt(question);
+      }      
+    </script>
+  </body>
+</html>

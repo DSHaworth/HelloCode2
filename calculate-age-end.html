@@ -15,7 +15,9 @@
     <script>
       function askDob(){
         // Get number of milliseconds in a year
-        var millisecondsInAYear = 365.2425 * 24 * 60 * 60 * 1000;
+        // DaysInYear * HoursInDay * MinutesInHour * SecondsInMinute * MillisecondsInSecond
+        // Could be "HardCoded" to 31536000000
+        var millisecondsInAYear = 365 * 24 * 60 * 60 * 1000;
 
         // Prompt for Start Date
         var dob = prompt("When were you born?", "12/30/1967");

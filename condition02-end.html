@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Condition empty</title>
+  </head>
+  <style>
+    .errorMessage{ color: red; display: none; }
+  </style>
+  <body>
+    <button type="button" onclick="askQuestionClick()">
+      Ask Question
+    </button>
+    <div id="greetingsDiv"></div>
+    <div id="emptyError" class="errorMessage">Name is required</div>
+
+    <script>
+      function askQuestionClick(){
+        var name = askQuestion("Hello, what is your name?");
+        if(name === ""){
+          document.getElementById("emptyError").style["display"]="block";
+        }
+        else{
+          document.getElementById("emptyError").style["display"]="none";
+          document
+            .getElementById("greetingsDiv")
+            .innerHTML = `Hello, ${name}!`;
+        }        
+      }
+      function askQuestion(question){
+        return prompt(question);
+      }      
+    </script>
+  </body>
+</html>
