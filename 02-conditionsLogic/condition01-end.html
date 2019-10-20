@@ -18,6 +18,7 @@
         var name = askQuestion("Hello, what is your name?");
         if(name === null){
           document.getElementById("nullError").style["display"]="block";
+          document.getElementById("greetingsDiv").innerHTML = "";
         }
         else{
           document.getElementById("nullError").style["display"]="none";
