@@ -18,22 +18,7 @@
     <script>
       function askQuestionClick(){
         var name = askQuestion("Hello, what is your name?");
-        if(name === "" && name === null){
-
-          switch(name){
-            case null:
-              document.getElementById("nullError").style["display"]="block";  
-              break;
-
-            case "":
-              document.getElementById("emptyError").style["display"]="block";
-              break;
-
-            default:
-              alert("Unknown error type");
-          }
-        }
-        else{
+        if(name){
           document.getElementById("emptyError").style["display"]="none";
           document
             .getElementById("greetingsDiv")
@@ -41,7 +26,25 @@
         }        
       }
       function askQuestion(question){
-        return prompt(question);
+        var result = prompt(question);
+
+        if(result === "" && result === null){
+
+          switch(name){
+            case null:
+              document.getElementById("nullError").style["display"]="block";  
+              return null;
+              break;
+
+            case "":
+              document.getElementById("emptyError").style["display"]="block";
+              return null;
+              break;
+
+            default:
+              return result;
+          }
+        }
       }      
     </script>
   </body>
