@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Multiply Two Numbers</title>
+    <style>
+      #resultDiv{
+        border: 1px solid #000;
+        height: 1.1em;
+        margin-left: 5px;
+        margin-bottom: -5px;
+        width: 80px;
+        display: inline-block;
+      }
+      input{
+        width: 50px;
+      }
+    </style>
+  </head>  
+  <body>    
+
+    <input type="number" id="num1">
+    * 
+    <input type="number" id="num2">
+
+    <button type="button" onclick="multiplyTwoNumbersClicked()">
+      =
+    </button>
+
+    <div id="resultDiv"></div>
+
+    <script>
+      function multiplyTwoNumbersClicked(){
+        
+        var num1 = document.getElementById("num1").value;
+        var num2 = document.getElementById("num2").value;
+        var resultDiv = document.getElementById("resultDiv");
+
+        resultDiv.innerHTML = num1 * num2;
+
+
+      } 
+
+      // Define multiplyNumbers here
+
+    </script> 
+  </body>
+</html>

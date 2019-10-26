@@ -54,7 +54,10 @@
 
         if(currentGuess == numberToGuess) 
         {     
-          displayResult("CONGRATULATIONS!!! YOU GUESSED IT RIGHT IN " + guessCount + " GUESS "); 
+          displayResult("CONGRATULATIONS!!! YOU GUESSED IT RIGHT IN " + guessCount
+            + ((guessCount == 1) 
+              ? " GUESS "
+              : " GUESSES") + ".") ; 
         } 
         else if(currentGuess > numberToGuess){ 
           guessCount++; 

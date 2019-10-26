@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello World 1</title>
+    <style>
+      #boxes{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+      .box{
+        width: 80px;
+        height: 40px;
+        margin: 5px;
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+        border: 1px solid black;
+      }
+      .normal-year { 
+        background-color: white; 
+      }
+
+      .leap-year { 
+        background-color: blue;
+        color: white; 
+      }
+
+      .non-leap-year { 
+        background-color: red; 
+        color: white;
+      }
+
+      .exception-leap-year { 
+        background-color: yellow; 
+      }
+
+    </style>
+  
+  </head>  
+  <body>
+    <button type="button" onclick="showLeapYears()">
+      Show Leap Years
+    </button>
+
+    <div id="boxes">
+
+    </div>
+
+    <script>
+      function showLeapYears(){
+
+        var startYear = 0;
+        var endYear = 2021;
+        var $boxes = document.getElementById("boxes");
+
+        for(var currentYear = startYear ; currentYear < endYear ; currentYear++){
+          
+          var div = document.createElement('div');
+          div.textContent = `${currentYear}`;
+
+          if( (currentYear % 400 ) === 0){
+            div.setAttribute('class', 'box exception-leap-year');
+          }
+          else if( (currentYear % 100 ) === 0){
+            div.setAttribute('class', 'box non-leap-year');            
+          }
+          else if( (currentYear % 4) === 0 ){
+            div.setAttribute('class', 'box leap-year');
+          } else {
+            div.setAttribute('class', 'box normal-year');
+          }
+
+          $boxes.appendChild(div);
+        }
+      }      
+
+    </script> 
+  </body>
+</html>
