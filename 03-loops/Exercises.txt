@@ -1,0 +1,9 @@
+* Write a for loop that counts down from 10 to 0
+  console.log()
+
+* Write a for loop that outputs your name 5 times
+  console.log()
+
+* Write a while loop that counts from 100 to 150
+  console.log()
+

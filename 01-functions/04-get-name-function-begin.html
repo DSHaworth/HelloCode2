@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ask Question</title>
+  </head>  
+  <body>
+    <input type="text" id="name" />
+
+    <button type="button" onclick="sayHi()">
+      Say Hi
+    </button>
+
+    <div id="greetingsDiv"></div>
+    
+    <script>
+      function sayHi(){
+        var name = getName();
+        document.getElementById("greetingsDiv").innerHTML = `Hello, ${name}!`;
+      }
+
+      function getName(){
+        // return value from input #name
+      }
+
+    </script>
+  </body>
+</html>

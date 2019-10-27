@@ -4,14 +4,17 @@
     <title>Ask Name</title>
   </head>  
   <body>
-    <button type="button" onclick="askNameClicked()">
-      Ask for name
+    <input type="text" id="name" />
+
+    <button type="button" onclick="sayHi()">
+      Say Hi
     </button>
+
     <div id="greetingsDiv"></div>
     
     <script>
-      function askNameClicked(){
-        var name = prompt("What is your name?");
+      function sayHi(){
+        var name = document.getElementById("name").value;
         document.getElementById("greetingsDiv").innerHTML = `Hello, ${name}!`;
       }
     </script>
