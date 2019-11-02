@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>jQuery Fun</title>
+    <style>
+      #demoParagraph{
+        height:100px;
+        width: 100%;
+        background-color: yellow;
+      }
+    </style>
+  </head>  
+  <body>
+    <p id="demoParagraph">This is a paragraph.</p>
+
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+    <br />    
+    <button id="slideUp">Slide Up</button>
+    <button id="slideDown">Slide Down</button>
+    <br />
+    <button id="fadeOut">Fade Out</button>
+    <button id="fadeIn">Fade In</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <script>
+    $(function(){
+
+      $("#hide").click(function(){
+        $("p").hide();
+      });
+      $("#show").click(function(){
+        $("p").show();
+      });      
+
+
+      $("#slideUp").click(function(){
+        $("p").slideUp();
+      });
+      $("#slideDown").click(function(){
+        $("p").slideDown();
+      });      
+
+      $("#fadeOut").click(function(){
+        $("p").fadeOut();
+      });
+      $("#fadeIn").click(function(){
+        $("p").fadeIn();
+      });          
+
+    });
+
+    </script> 
+  </body>
+</html>

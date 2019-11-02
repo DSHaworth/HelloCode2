@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello World 1</title>
+    <style>
+      p {
+        height:100px;
+        width: 100%;
+        background-color: yellow;
+      }
+    </style>    
+  </head>  
+  <body>
+    <p>This is a paragraph.</p>
+    
+    <button id="withCallback">With Callback</button>
+    <button id="withNoCallback">With No Callback</button>
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <script>
+    $(document).ready(function(){
+      $("#withCallback").click(function(){
+        $("p").hide("slow", function(){
+          alert("The paragraph is now hidden");
+        });
+      });
+
+      $("#withNoCallback").click(function(){
+        $("p").hide(1000);
+        alert("The paragraph is now hidden");
+      });
+
+    });
+
+    </script> 
+  </body>
+</html>
