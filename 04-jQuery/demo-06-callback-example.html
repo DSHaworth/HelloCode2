@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello World 1</title>
+  </head>  
+  <body>
+    <p>This is a paragraph.</p>
+    
+    <button id="sayHi">Say Hi</button>
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <script>
+    $(function(){
+      $("#sayHi").click(callSayHiFunction);
+    });
+
+    function callSayHiFunction(){
+      sayHi("Hi", sayHiDone)
+    }
+
+    function sayHi(greeting, callback) {
+      alert(greeting);
+      callback();
+    }
+
+    function sayHiDone(){
+      alert('Finished saying "Hi"');
+    }
+    
+
+    </script> 
+  </body>
+</html>

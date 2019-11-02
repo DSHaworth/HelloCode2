@@ -18,11 +18,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     
     <script>
-    $(function(){
-      $("#withCallback").click(function(){
-        $("p").hide("slow", showDone);        
-      });
-    });
+    $(documentLoadedCallback);
+
+    function documentLoadedCallback(){
+      $("#withCallback").click(withCallbackClicked);
+    }
+
+    function withCallbackClicked(){
+      $("p").hide("slow", showDone);
+    }
 
     function showDone(){
       alert("The paragraph is now hidden");
