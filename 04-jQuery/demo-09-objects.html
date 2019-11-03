@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>jquery inputs</title>
+    <style>
+      div.field{
+        padding: 5px;
+      }
+    </style>
+  </head>  
+  <body>
+
+    <form>
+      <div class="field">
+        First Name: <input type="text" id="firstName">
+      </div>
+      <div class="field">
+        Password: <input type="password" id="password">
+      </div>
+      <div class="field">
+        Gender:
+        <input type="radio" name="gender" value="male" checked> Male
+        <input type="radio" name="gender" value="female"> Female
+        <input type="radio" name="gender" value="other"> Other
+      </div>
+      <div class="field">
+        Transportation:<br>
+        <input type="checkbox" name="transpcortation" value="bike"> I have a bike<br>
+        <input type="checkbox" name="transportation" value="car"> I have a car<br>
+      </div>
+      <div class="field">
+        Favorite joke<br>
+        <textarea id="favoriteJoke" style="width:200px; height:50px;"></textarea>
+      </div>
+      <div class="field">
+        Title        
+        <select id="title">
+          <option value="mr">Mr.</option>
+          <option value="mrs">Mrs.</option>
+          <option value="miss">Miss</option>
+          <option value="dr">Dr.</option>
+          <option value="other">Other</option>
+        </select><br>
+      
+      </div>
+    </form>
+
+    <button type="button" id="getValues">Get Values</button>
+    <button type="button" id="setValues">Set Values</button>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    <script>
+    $(function(){
+      $("#getValues").click(function(){
+        var firstName = $("#firstName").val();
+        var password = $("#password").val();
+        var gender = $("input:radio[name='gender']:checked").val();
+
+        var trasportationTypes = [];
+        console.log("Start Loop");
+        for(var idx = 0 ; idx < $("input:checkbox[name='transportation']:checked").length ; idx++){
+          
+          //console.log($("input:checkbox[name='transportation']")[idx]);
+          //console.log($($("input:checkbox[name='transportation']")[idx]).val());
+
+          var currentItem = $("input:checkbox[name='transportation']")[idx];
+          var currentItemVal = $(currentItem).val();
+          trasportationTypes.push(currentItemVal);
+
+          //OneLine
+          //trasportationTypes.push($($("input:checkbox[name='transportation']")[idx]).val())
+        }        
+        console.log("End Loop");
+        
+        var favoriteJoke = $("#favoriteJoke").val();
+        var title = $('#title').val()
+
+        console.log(firstName);
+        console.log(password);
+        console.log(gender);
+        console.log(trasportationTypes);
+        console.log(favoriteJoke);
+        console.log(title);
+
+        var myObject = {
+          firstName: firstName,
+          password: password,
+          gender: gender,
+          trasportationTypes: trasportationTypes,
+          favoriteJoke: favoriteJoke,
+          title: title
+        }
+
+        console.log(myObject);
+        
+      });
+
+      $("#setValues").click(function(){
+
+        var myObject = {
+          firstName: "Duane",
+          password: "Password123",
+          gender: ["male"],
+          trasportationTypes: ["car"],
+          favoriteJoke: "!false\nIt's funny, because it's true",
+          title: "mr"
+        }
+
+        $("#firstName").val(myObject.firstName);
+        $("#password").val(myObject.password);
+        $("input:radio[name='gender']").val(myObject.gender);
+        $("input:checkbox[name='transportation']").val(myObject.trasportationTypes);
+        $("#favoriteJoke").val(myObject.favoriteJoke);
+        $('#title').val(myObject.title);
+      });      
+    });
+    </script> 
+
+  </body>
+</html>
