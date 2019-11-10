@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Condition null</title>
+</head>
+<style>
+  .error{ color: red; }
+</style>    
+<body>
+
+<p>Enter a Fahrenheit Temp to convert to Celsius</p>
+  
+  <p>
+    <div>Temp to Convert</div>
+    <div><input id = "temp" /></div>
+    <div id="tempError" class="error"></div>
+  </p>
+
+  <p>
+    <div>Convert To</div>
+    <div>
+      <select id = "type">
+        <option value="celsius">Celsius</option>
+        <option value="fahrenheit">Fahrenheit</option>
+      </select>
+    </div>
+  </p>
+
+  <button id="convert">Convert</button>
+
+  <p id="demo"></p>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+  $(function(){
+    $("#convert").click(function() {
+        var temp = $("#temp").val();
+        var type = $("#type").val();
+
+        if(isValidNumber(temp)){
+          // Turn off error
+          $("#tempError").text("");
+          var convertedTemp = convertTemp(type, temp);
+          $("#demo").text(convertedTemp);
+        }
+        else{
+          // Display error
+          $("#tempError").text("Please enter a valid number");
+        }
+     })
+  }); 
+
+  function isValidNumber(valToTest){
+    return valToTest && !isNaN(valToTest);
+  }
+
+  function convertTemp(type, temp){
+    switch(type.toLowerCase()){
+      case "celsius":
+        return convertedTemp=toCelsius(temp);
+      case "fahrenheit":
+        return convertedTemp=toFahrenheit(temp);
+      default: //Should never get here since we control value.
+        return "Unknown Temp Type!!"
+    }    
+  }
+
+  function toCelsius(f) {
+    return (5/9) * (f-32);
+  }
+
+  function toFahrenheit(c) {
+    return c * 9 / 5 + 32;
+  }  
+</script>
+
+</body>
+</html>

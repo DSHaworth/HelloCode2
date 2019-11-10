@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+  </head>
+
+  <body>
+
+    <h2>Login page (using jQuery)</h2>
+
+    <p>Enter your username and password:</p>
+
+    <div>
+        <label for="username">Username:</label>
+        <input id="username" />
+    </div>
+    <br>
+    <div>
+        <label for="password">Password:</label>
+        <input id="password" />
+    </div>
+    <br>
+    <button id="login">Login</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            $("#login").on("click", function () {
+                var username = $("#username").val();
+                var password = $("#password").val();
+                var userCreds = {
+                  userName: username.toLowerCase(),
+                  password: password
+                };
+                //var hasCreds = userHasCreds(username.toLowerCase(), password);
+                var hasCreds = userHasCreds(userCreds);
+                if (hasCreds) {
+                    alert("You are authorized");
+                } else {
+                    alert("Unauthorized");
+                }
+            })
+        });
+
+        //function userHasCreds(u, p) {
+        function userHasCreds(user) {
+          var MyName = "Daniel".toLowerCase();
+          var MyPsWd = "AaBbCcDd";
+          return user.userName === MyName && user.password === MyPsWd;
+        }
+
+    </script>
+
+</body>
+
+
+
+</html>
