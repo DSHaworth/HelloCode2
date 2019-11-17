@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  
+</style>
+</head>
+<body>
+  <p>Omaha Weather</p>
+
+  <div id="weatherForecast"></div>
+
+  <script>
+    $(function(){
+      $.get( "https://api.weather.gov/gridpoints/OAX/82,59/forecast")
+        .done(function(data) {
+          //alert( "second success" );
+          $("#weatherForecast").html("<pre><code>" + JSON.stringify(data, null, 4) + "</code></pre>");
+          console.info(data)
+        })
+        .fail(function(responseText, textStatus, req) {
+          console.info(arguments);
+          alert( textStatus );
+        })
+        .always(function() {
+          alert( "finished, wether it worked or not.  (See what I did there?)" );
+        });
+    });
+  </script>
+
+</body>
+</html>
