@@ -1,0 +1,17 @@
+.flex-it{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-stretch;
+}
+.weather-card{
+  padding: 5px; 
+  margin: 5px;
+  width: 140px;
+  border: 1px solid dodgerblue;
+  text-align: center;
+}
+.weather-period img{
+  margin: 5px;
+}

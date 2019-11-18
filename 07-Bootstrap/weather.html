@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="./weather.css">
+
+<h1>Weather <small>Omaha</small></h1>
+
+<div id="weatherForecast">
+  <p id="properties-generated"></p>
+
+  <div class="flex-it" id="properties-periods">
+  </div>
+
+</div>
+
+<!-- The Modal -->
+<div class="modal fade" id="weatherModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Weather Details</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div id="periodName"></div>
+        <div id="detailedForecast">
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script type="text/html" id="periodTemplate">
+  <div class="weather-card card" style="width: 200px">
+    <img class="card-img-top" src='{icon}' style="width: 100%;" />
+    <div class="card-body">
+        <h4 class="card-title">{name}</h4>    
+        <div>{temperature}</div>
+        <div>{windSpeed} {windDirection}</div>      
+        <div>{shortForecast}</div>
+    </div>
+    <button type="button" idx="{idx}" class="btn btn-primary stretched-link weather-detail">See Details</button>
+  </div>
+</script>
+
+<script src="./weather.js"></script>
+
