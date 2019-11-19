@@ -2,9 +2,15 @@ $(function(){
   var farSymbol = "&#8457;";
   var celSymbol = "&#8451;";
 
-  var weatherPeriods = [];
+  var periods = [];
 
   getWeather();
+
+  $(".view-mode").click(function(){
+    $(".view-mode").removeClass("btn-outline-primary");
+
+    $(this).addClass("btn-outline-primary");
+  });
 
   function getWeather(){
     $.get( "https://api.weather.gov/gridpoints/OAX/82,59/forecast")
@@ -15,13 +21,14 @@ $(function(){
 
       $("#properties-generated").text(new Date(data.properties.generatedAt));
 
-      var template = $("#periodTemplate").html();
+      var templateCard = $("#periodTemplateCard").html();
+      var templateList = $("#periodTemplateList").html();
 
       for(var idx = 0 ; idx < periods.length ; idx++){
         var period = periods[idx];
 
-        $("#properties-periods").append(
-          template
+        $("#properties-periods-card").append(
+          templateCard
             .replace(/{name}/, period.name)
             .replace(/{temperature}/, period.temperature + (period.temperatureUnit.toUpperCase() === "F" ? farSymbol : celSymbol) )
             .replace(/{windSpeed}/, period.windSpeed)
@@ -30,6 +37,17 @@ $(function(){
             .replace(/{shortForecast}/, period.shortForecast)
             .replace(/{idx}/, period.number)
         )
+
+        $("#properties-periods-list").append(
+          templateList
+            .replace(/{name}/, period.name)
+            .replace(/{temperature}/, period.temperature + (period.temperatureUnit.toUpperCase() === "F" ? farSymbol : celSymbol) )
+            .replace(/{windSpeed}/, period.windSpeed)
+            .replace(/{windDirection}/, period.windDirection)
+            .replace(/{icon}/, period.icon)
+            .replace(/{shortForecast}/, period.shortForecast)
+            .replace(/{idx}/, period.number)
+        );
       }
 
       $(".weather-detail").click(function(){

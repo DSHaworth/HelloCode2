@@ -5,9 +5,26 @@
 <div id="weatherForecast">
   <p id="properties-generated"></p>
 
-  <div class="flex-it" id="properties-periods">
-  </div>
+  <!-- Nav pills -->
+  <ul class="nav nav-pills" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="pill" href="#card"><i class="fas fa-th"></i></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="pill" href="#list"><i class="fas fa-th-list"></i></a>
+    </li>
+  </ul>
 
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="card" class="container tab-pane active"><br>
+      <div class="flex-it" id="properties-periods-card"></div>
+    </div>
+    <div id="list" class="container tab-pane fade"><br>
+      <div class="list-group" id="properties-periods-list"></div>
+    </div>
+  </div>  
 </div>
 
 <!-- The Modal -->
@@ -36,7 +53,7 @@
   </div>
 </div>
 
-<script type="text/html" id="periodTemplate">
+<script type="text/html" id="periodTemplateCard">
   <div class="weather-card card" style="width: 200px">
     <img class="card-img-top" src='{icon}' style="width: 100%;" />
     <div class="card-body">
@@ -47,6 +64,18 @@
     </div>
     <button type="button" idx="{idx}" class="btn btn-primary stretched-link weather-detail">See Details</button>
   </div>
+</script>
+
+<script type="text/html" id="periodTemplateList">
+  <li class='list-group-item' style="display: flex;flex-direction: row;flex-wrap: nowrap;justify-content: flex-start;align-items: center">
+    <div style="margin-right: 1em;"><img src='{icon}'></div>
+    <div>
+      <div style="font-weight: bold;">{name}</div>
+      <div>{temperature}</div>
+      <div>{windSpeed} {windDirection}</div>      
+      <div>{shortForecast}</div>      
+    </div>
+  </li>
 </script>
 
 <script src="./weather.js"></script>
