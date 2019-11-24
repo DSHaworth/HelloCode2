@@ -5,6 +5,13 @@
   justify-content: flex-start;
   align-items: flex-stretch;
 }
+.flex-space{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-stretch;
+}
 .weather-card{
   padding: 5px; 
   margin: 5px;

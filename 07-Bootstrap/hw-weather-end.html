@@ -72,7 +72,9 @@
             $("#properties-periods").append(
               template
                 .replace(/{name}/, period.name)
-                .replace(/{temperature}/, period.temperature + (period.temperatureUnit.toUpperCase() === "F" ? farSymbol : celSymbol) )
+                .replace(/{temperature}/, period.temperature + (period.temperatureUnit.toUpperCase() === "F" 
+                                                                  ? farSymbol 
+                                                                  : celSymbol) )
                 .replace(/{windSpeed}/, period.windSpeed)
                 .replace(/{windDirection}/, period.windDirection)
                 .replace(/{icon}/, period.icon)
@@ -88,10 +90,6 @@
           console.log( "finished, wether it worked or not.  (See what I did there?)" );
         });
     });
-
-    var weatherTemplate = `
-      <div
-    `;
 
   </script>
 
