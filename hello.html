@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="./weather.css">
+
+<h1>Weather <small>Omaha</small></h1>
+
+<div id="weatherForecast">
+  <p id="properties-generated"></p>
+  
+  <div class="flex-space">
+    <div>
+        <!-- Nav pills for tabs -->
+        <ul class="nav nav-pills" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="pill" href="#card"><i class="fas fa-th"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#list"><i class="fas fa-th-list"></i></a>
+          </li>
+        </ul>
+    </div>
+    <div>
+      <!-- Radio Buttons to select temp type -->
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-primary active">
+          <input type="radio" name="tempOptions" value="fahrenheit" autocomplete="off" checked> Fahrenheit
+        </label>
+        <label class="btn btn-primary">
+          <input type="radio" name="tempOptions" value="celsius" autocomplete="off"> Celsius
+        </label>
+      </div>  
+    </div>
+  </div>
+
+  <!-- Tab panes -->
+  <div class="tab-content" id="weather-content">
+    <div id="card" class="tab-pane active"><br>
+      <div class="flex-it" id="properties-periods-card"></div>
+    </div>
+    <div id="list" class="tab-pane fade"><br>
+      <div class="list-group" id="properties-periods-list"></div>
+    </div>
+  </div>  
+</div>
+
+<!-- 
+  The Modal window.
+  This will be rendered when user clicks on a weather card or list item.
+-->
+<div class="modal fade" id="weatherModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Weather Details</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p>
+          <img id="icon" class="rounded mx-auto d-block" />
+        </p>
+        <p id="periodName" style="font-size: 1.2em;"></p>        
+        <p id="detailedForecast"></p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 
+  Notice the type="text/html".
+  This HTML won't be rendered, but it can be referecned.
+-->
+<script type="text/html" id="periodTemplateCard">
+  <div class="weather-card card" style="width: 200px">
+    <img class="card-img-top" src='{icon}' style="width: 100%;" />
+    <div class="card-body">
+        <h4 class="card-title">{name}</h4>    
+        <div>{temperature}</div>
+        <div>{windSpeed} {windDirection}</div>      
+        <div>{shortForecast}</div>
+    </div>
+    <button type="button" idx="{idx}" class="btn btn-primary stretched-link weather-detail">See Details</button>
+  </div>
+</script>
+
+<script type="text/html" id="periodTemplateList">
+  <a idx="{idx}" href="#" class='list-group-item list-group-item-action weather-detail' style="display: flex;flex-direction: row;flex-wrap: nowrap;justify-content: flex-start;align-items: center">
+    <div style="margin-right: 1em;"><img src='{icon}'></div>
+    <div>
+      <div style="font-weight: bold;">{name}</div>
+      <div>{temperature}</div>
+      <div>{windSpeed} {windDirection}</div>      
+      <div>{shortForecast}</div>      
+    </div>
+  </a>
+</script>
+
+<script src="./weather.js"></script>
+<script src="./tempHelper.js"></script>
