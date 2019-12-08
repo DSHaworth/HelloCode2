@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello World 1</title>
+  </head>  
+  <body>
+    <button type="button" onclick="sayHelloWorld('Hello World!')">
+      Say Hello World
+    </button>
+    <button type="button" onclick="sayHelloWorld('')">
+      Clear
+    </button>
+
+
+    <div id="greetingsDiv"></div>
+
+    <script>
+      function sayHelloWorld(greeting){
+        document.getElementById("greetingsDiv").innerHTML = greeting;
+      }
+    </script>
+  </body>
+</html>
