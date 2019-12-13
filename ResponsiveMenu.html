@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello World 1</title>
+    <style>
+/* Basic styling */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: sans-serif;
+  background: #f1f1f1;
+}
+
+.nav-container{
+    border: 1px solid red;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: 200;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    background-color: var(--color-bg-main);
+    padding: 16px 64px 16px 48px;    
+}
+
+.nav-container nav.prominent-nav{
+                border: 1px dotted orange;
+}
+
+.nav-container nav.prominent-nav ul.menu{
+                list-style-type: none;
+    
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;    
+}
+
+.nav-container nav.prominent-nav ul.menu li{
+  font-size: 16px;
+  padding: 15px 5px;
+  white-space: nowrap;
+}
+
+.nav-container nav.prominent-nav ul.menu li.item{
+  width: 100%;
+  text-align: center;
+  display: none;
+}
+
+.nav-container nav.prominent-nav ul.menu li.item.active{
+  display: block;
+}
+
+.nav-container nav.prominent-nav ul.menu li a{
+  color: green;
+  text-decoration: none;
+  padding: 0 10px 0 10px;
+}
+
+.nav-container nav.prominent-nav ul.menu li a:hover{
+  color: blue;
+}
+
+/* Tablet menu */
+@media all and (min-width: 600px) {
+  .nav-container nav.prominent-nav ul.menu {
+    justify-content: center;
+  }
+  .nav-container nav.prominent-nav ul.menu li.logo-item {
+    flex: 1;
+  }
+  .nav-container nav.prominent-nav ul.menu li.toggle {
+    flex: 1;
+    text-align: right;
+  }
+}
+/* Desktop menu */
+@media all and (min-width: 900px) {
+  .nav-container nav.prominent-nav ul.menu li.item {
+    display: block;
+    width: auto;
+  }
+  .nav-container nav.prominent-nav ul.menu li.toggle {
+    display: none;
+  }
+
+  .nav-container nav.prominent-nav ul.menu li {
+    padding: 15px 10px;
+  }
+}
+    
+    </style>    
+  </head>  
+  <body>
+                <div class="nav-container">
+      <nav class="prominent-nav">
+        <ul class="menu">
+          <li class="logo-item"><a href="#">LOGO</a></li>
+          <li class="item"><a href="#">Home</a></li>
+          <li class="item"><a href="#">About</a></li>
+          <li class="item"><a href="#">Contact</a></li>
+          <li class="toggle"><a href="#" onclick="toggle()">BARS</a></li>
+        </ul>
+      </nav>
+    </div>
+    <script>
+      function toggle(){
+        var navItems = document.querySelectorAll("nav ul.menu li.item");
+        var toggleButton = document.querySelector("nav ul.menu li.toggle a");
+
+        if(navItems && hasClass(navItems[0], "active")){
+          for(var idx = 0, max = navItems.length ; idx < max ; idx++){
+            removeClass(navItems[idx], "active");
+          }
+          toggleButton.innerHTML = "BARS";
+        }
+        else {
+          for(var idx = 0, max = navItems.length ; idx < max ; idx++){
+            addClass(navItems[idx], "active");
+          }
+          toggleButton.innerHTML = "CLOSE";          
+        }
+      }
+
+      function hasClass( target, className ) {
+        return new RegExp('(\\s|^)' + className + '(\\s|$)').test(target.className);
+      }
+
+      function removeClass(element, classToRemove) {        
+        var inputString = element.className;
+        var re = new RegExp(`\\b${classToRemove}\\b`, 'gi');
+        element.className = inputString.replace(re);
+      }
+
+      function addClass(element, classToAdd){        
+        arr = element.className.split(" ");
+        if (arr.indexOf(classToAdd) == -1) {
+          element.className += " " + classToAdd;
+        }            
+      }
+
+    </script>    
+  </body>
+</html>
