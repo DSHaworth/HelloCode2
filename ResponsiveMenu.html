@@ -30,16 +30,16 @@ body {
 }
 
 .nav-container nav.prominent-nav{
-                border: 1px dotted orange;
+  border: 1px dotted orange;
 }
 
 .nav-container nav.prominent-nav ul.menu{
-                list-style-type: none;
-    
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                align-items: center;    
+  list-style-type: none;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;    
 }
 
 .nav-container nav.prominent-nav ul.menu li{
@@ -52,6 +52,7 @@ body {
   width: 100%;
   text-align: center;
   display: none;
+  order: 3;
 }
 
 .nav-container nav.prominent-nav ul.menu li.item.active{
@@ -136,7 +137,7 @@ body {
       function removeClass(element, classToRemove) {        
         var inputString = element.className;
         var re = new RegExp(`\\b${classToRemove}\\b`, 'gi');
-        element.className = inputString.replace(re);
+        element.className = inputString.replace(re, "");
       }
 
       function addClass(element, classToAdd){        
