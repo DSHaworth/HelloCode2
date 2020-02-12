@@ -59,3 +59,7 @@ That's great if you only deal with 5 or "Lastname" and "Firstname".
     Number("5") + Number("5")
     parseInt("5") + parseInt("5")
 
+### Functions
+
+[JavaScript Functions](https://www.w3schools.com/js/js_functions.asp)
+
