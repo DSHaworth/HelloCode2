@@ -61,7 +61,7 @@ An object can have **properties** and **methods**.
   <dd>Properties store a value</dd>
 
   <dt>Methods</dt>
-  <dd>Methods execute an action</dd>  
+  <dd>Methods execute an action.  Method will end with ( )</dd>  
 </dl>
 
 ### String
@@ -75,8 +75,8 @@ Strings are objects.  They have "built-in" properties and methods.
 Note the results after pressing **Enter**
 
     "test".  //What do you see here?
-    "test".length 
-    "test".toUpperCase()  
+    "test".length   // Property - displays property value
+    "test".toUpperCase()  // Method - Does something
 
 ### Date
 
@@ -117,9 +117,9 @@ Arrays store a "list" of something.
 Go to Chrome's Developer tools and look at some of the features associated with an array.
 
     var pets = ["Emily", "Roxy", "Daisy", "Harley"];
-    pets.
-    pets.length
-    pets.sort()
+    pets.  // What do you see here?
+    pets.length  // Property
+    pets.sort()  // Method
     pets.indexOf("Emily")    
 
     // Advanced Stuff
@@ -129,5 +129,7 @@ Go to Chrome's Developer tools and look at some of the features associated with 
 
 
 ## Undefined
+Variable has been declared, but no value assigned, so it doesn't know what it is yet.
 
 ## Null
+No value

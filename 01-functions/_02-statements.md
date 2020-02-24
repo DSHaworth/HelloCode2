@@ -42,15 +42,42 @@ Type out each line below in the **console**
 
 That's all great if you only deal with 5 or "Lastname" and "Firstname".
 
-### Variables
+### [Variables](https://www.w3schools.com/js/js_variables.asp)
+
+Remember Algebra?  It's back.  :-)  But this time, you're in charge.
+
+Variables hold values.
+
+    let a = 5;
+    let b = 20;
+    let x = a + b;
+
+* Names can contain letters, digits, underscores, and dollar signs.
+* Names must begin with a letter
+* Names can also begin with $ and _ (but we will not use it in this tutorial)
+* Names are case sensitive (y and Y are different variables)
+* Reserved words (like JavaScript keywords) cannot be used as names
+
+**Hint:** Make the variable name meaningful.
+
+Declaring variables
+
+**var** and **let**
+
+**var** is defined throughought the program. Forgiving nature of JavaScript.
+
+**let** (ES2016) is block scoped.
+
+**const** (ES2016) lets you define a value once.
+
 #### Numbers
-    var number = 5
-    number + number
-    number * number
-    number / number
-    number - number
-    number + number * number
-    (number + number) * number
+    var number = 5;
+    number + number;
+    number * number;
+    number / number;
+    number - number;
+    number + number * number;
+    (number + number) * number;
 
 #### Strings
     var firstname = "Duane";

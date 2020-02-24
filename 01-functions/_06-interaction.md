@@ -7,7 +7,7 @@
 
 ### Add an **onclick** event
 
-    <button onclick="alert('Hello, world!')">
+    <button onclick="alert('Hello World!')">
       Say Hi
     </button>
 
@@ -21,7 +21,7 @@
 
     <script>
     function sayHi(){
-      alert("Hello, world!")
+      alert("Hello World!")
     }
     </script>
 
@@ -34,7 +34,7 @@
     
     <script>
       function sayHelloClicked(){
-        var greetingsVar = "Hello, world!";  
+        var greetingsVar = "Hello World!";  
 
         document
           .getElementById("greetingsDiv")
@@ -58,7 +58,7 @@
                      .getElementById("name").value;
         document
           .getElementById("greetingsDiv")
-          .innerHTML = `Hello, ${name}!`;
+          .innerHTML = `Hi ${name}!`;
       }
     </script>
 

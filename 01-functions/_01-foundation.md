@@ -98,6 +98,8 @@ Don't worry about understanding what you're looking at.
 
 This short program demonstrates all the basics for a computer program.
 
+## Algorithm
+
 Here's the **algorithm** for the code above
 
 1. Initialize variables
@@ -105,6 +107,10 @@ Here's the **algorithm** for the code above
    1. If quantity greater than 0
       1. Calculate Cost
       2. If item is taxable
-         1. Calculate Tax
+         1. Calculate with tax
       3. Add cost to grandTotal
 3. Display grandTotal
+
+## Flowchart
+
+![alt text](flowchart01.png "Flowchart")
