@@ -13,9 +13,12 @@
 
   <script>
     $(function(){
+      
+      console.log("BEFORE making the weather call");
+      
       $.get( "https://api.weather.gov/gridpoints/OAX/82,59/forecast")
         .done(function(data) {
-          //alert( "second success" );
+          console.log("DONE with weather call");
           $("#weatherForecast").html("<pre><code>" + JSON.stringify(data, null, 4) + "</code></pre>");
           console.info(data)
         })
@@ -24,8 +27,11 @@
           alert( textStatus );
         })
         .always(function() {
-          alert( "finished, wether it worked or not.  (See what I did there?)" );
+          console.log( "finished, 'weather' it worked or not.  (See what I did there?)" );
         });
+      
+      console.log("AFTER making the weather call");
+      
     });
   </script>
 

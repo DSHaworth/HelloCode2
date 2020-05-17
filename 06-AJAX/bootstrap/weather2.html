@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    .flex-it{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-stretch;
+    }
+    .weather-period{
+      padding: 5px; 
+      margin: 5px;
+      width: 140px;
+      border: 1px solid dodgerblue;
+      text-align: center;
+    }
+    .weather-period img{
+      margin: 5px;
+    }
+  </style>
+
+</head>
+<body>
+
+  <p>Omaha Weather</p>
+
+  <div id="weatherForecast">
+    <p id="properties-generated"></p>
+
+    <div class="flex-it" id="properties-periods">
+
+    </div>
+
+  </div>
+
+  <script type="text/html" id="periodTemplate">
+    <div class="weather-period">
+      <div>{name}</div>
+      <img src='{icon}' />
+      <div>{temperature}</div>
+      <div>{windSpeed} {windDirection}</div>      
+      <div>{shortForecast}</div>
+    </div>
+  </script>
+    
+  <script>
+
+    var farSymbol = "&#8457;";
+    var celSymbol = "&#8451;";
+
+    $(function(){
+      $.get( "https://api.weather.gov/gridpoints/OAX/82,59/forecast")
+        .done(function(data) {
+          console.info(data);
+
+          $("#properties-generated").text(new Date(data.properties.generatedAt));
+
+          var template = $("#periodTemplate").html();
+
+          for(var idx = 0 ; idx < data.properties.periods.length ; idx++){
+            var period = data.properties.periods[idx];
+
+            $("#properties-periods").append(
+              template
+                .replace(/{name}/, period.name)
+                .replace(/{temperature}/, period.temperature + (period.temperatureUnit.toUpperCase() === "F" 
+                                                                  ? farSymbol 
+                                                                  : celSymbol) )
+                .replace(/{windSpeed}/, period.windSpeed)
+                .replace(/{windDirection}/, period.windDirection)
+                .replace(/{icon}/, period.icon)
+                .replace(/{shortForecast}/, period.shortForecast)
+            )
+          }
+        })
+        .fail(function(responseText, textStatus, req) {
+          console.info(arguments);
+          alert( textStatus );
+        })
+        .always(function() {
+          console.log( "finished, wether it worked or not.  (See what I did there?)" );
+        });
+    });
+
+  </script>
+
+</body>
+</html>
